@@ -25,6 +25,7 @@ El programa lee dos ficheros de entrada (`puntos.txt` y `triangulos.txt`), const
 
 ## Estructura del proyecto
 
+```text
 /proyecto
 │
 ├── src/
@@ -47,8 +48,7 @@ El programa lee dos ficheros de entrada (`puntos.txt` y `triangulos.txt`), const
 ├── data/
 │   ├── puntos.txt
 │   └── triangulos.txt
-
----
+```
 
 ## Flujo del programa
 
