@@ -1,11 +1,23 @@
-# TriMesh Analyzer
+<h1 align="center">ANALIZADOR DE TRIANGULOS</h1>
+<p align="center">Análisis geométrico de malla triangular en C</p>
+
+## Tech Stack
+
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="60" />
+</p>
+
+<p align="center">
+  <b>Lenguaje:</b> C<br>
+  <b>Conceptos:</b> Estructuras, punteros, memoria dinámica<br>
+  <b>Librerías:</b> mimalloc, mirealloc, mifopen
+</p>
 
 Proyecto en C centrado en el uso de estructuras y memoria dinámica para representar puntos del plano y su triangulación.
 
 El programa lee dos ficheros de entrada (`puntos.txt` y `triangulos.txt`), construye en memoria una malla triangular enlazando puntos mediante punteros y realiza un análisis geométrico sobre los triángulos.
 
 ---
-
 ## Funcionalidad
 
 - Lectura de puntos 2D desde fichero
@@ -56,34 +68,5 @@ El programa lee dos ficheros de entrada (`puntos.txt` y `triangulos.txt`), const
 2. Se leen los triángulos y se enlazan con los puntos mediante punteros  
 3. Se calculan propiedades geométricas de cada triángulo  
 4. Se muestra la información en consola en formato estructurado  
-
----
-
-## Compilación
-
-Desde la raíz del proyecto:
-
-
-gcc src/.c lib/.c -Iinclude -o triangulos -lm
-
-
----
-
-## Ejecución
-
-
-./triangulos
-
-
----
-
-## Notas
-
-- El proyecto sigue los requisitos de la asignatura:
-  - uso de estructuras (`struct`)
-  - uso de memoria dinámica
-  - uso de la librería proporcionada en clase
-- No se utilizan librerías externas ni funcionalidades fuera del temario
-- La salida en consola se ha diseñado como un pequeño informe visual para facilitar la interpretación de los datos
 
 ---
