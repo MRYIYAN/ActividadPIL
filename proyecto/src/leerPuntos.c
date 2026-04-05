@@ -4,10 +4,18 @@
  *
  * Contiene la implementación de la función leerPuntos, encargada de la gestión de memoria dinámica y lectura de datos.
  */
+//==================================================================//
+//                         IMPORTS                                 //
+//==================================================================//
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "estructuras.h"
 #include "memoria.h"
+
+//==================================================================//
+//                         FUNCIONES                               //
+//==================================================================//
 
 /**
  * @brief Lee los puntos desde un fichero de texto y los almacena en memoria dinámica.
@@ -20,36 +28,43 @@
  */
 punto2D *leerPuntos(const char *nombreFichero, unsigned *numPuntos)
 {
-    FILE *fichero;
-    punto2D *puntos;
-    unsigned capacidad;
-    unsigned contador;
-    punto2D puntoLeido;
+    FILE *fichero;            // puntero al fichero de entrada
+    punto2D *puntos;          // array dinámico de puntos que vamos construyendo
+    unsigned capacidad;       // capacidad actual del array dinámico
+    unsigned contador;        // cuantos puntos hemos leído hasta ahora
+    punto2D puntoLeido;       // punto temporal para cada línea leída
 
+    // abro el fichero de forma segura usando mifopen
     fichero = mifopen(nombreFichero, "r");
 
-    capacidad = 10;
+    capacidad = 10; // empezamos con espacio para 10 puntos
     contador = 0;
     puntos = mimalloc(capacidad * sizeof(punto2D));
 
+    // leo línea a línea hasta que no haya más datos válidos
     while (fscanf(fichero, "%u %lf %lf",
-                  &puntoLeido.id,
+                  &puntoLeido.ID,
                   &puntoLeido.x,
                   &puntoLeido.y) == 3) {
 
+        // si llegamos al límite de la capacidad, duplicamos el tamaño
         if (contador == capacidad) {
             capacidad = capacidad * 2;
             puntos = mirealloc(puntos, capacidad * sizeof(punto2D));
         }
 
+        // guardo el punto leído en el array y avanzo el contador
         puntos[contador] = puntoLeido;
         contador++;
     }
 
+    // cierro el fichero cuando termino la lectura
     fclose(fichero);
 
+    // devuelvo la cantidad real de puntos leídos
     *numPuntos = contador;
 
+    // redimensiono el array al tamaño exacto que necesitamos
     puntos = mirealloc(puntos, contador * sizeof(punto2D));
 
     return puntos;

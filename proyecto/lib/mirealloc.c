@@ -7,13 +7,22 @@
  * Si la operación tiene éxito, devuelve un puntero al bloque de memoria redimensionado.
  */
 
+//==================================================================//
+//                         IMPORTS                                 //
+//==================================================================//
+
 #include <stdio.h>
 #include <stdlib.h>
+
+//==================================================================//
+//                         FUNCIONES                               //
+//==================================================================//
 
 void *mirealloc(void *ptr, unsigned tam)
 {
     void *p;
 
+    // iedimensionar memoria dinámica
     if ((p = realloc(ptr, tam)) == NULL) {
         printf("\nError in mirealloc:");
         printf("\n Memory allocation failed! \n Bye...\n\n");

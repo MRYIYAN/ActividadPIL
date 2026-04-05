@@ -7,13 +7,22 @@
  * Si la reserva tiene éxito, devuelve un puntero al bloque de memoria reservado.
  */
 
+//==================================================================//
+//                         IMPORTS                                 //
+//==================================================================//
+
 #include <stdio.h>
 #include <stdlib.h>
+
+//==================================================================//
+//                         FUNCIONES                               //
+//==================================================================//
 
 void *mimalloc(unsigned tam)
 {
     void *ptr;
 
+    // reservar memoria dinámica
     if ((ptr = malloc(tam)) == NULL) {
         printf("\nError in miealloc:");
         printf("\n Memory allocation failed! \n Bye...\n\n");

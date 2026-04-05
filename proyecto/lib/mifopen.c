@@ -7,13 +7,24 @@
  * mostrando un mensaje por consola.
  */
 
+//==================================================================//
+//                         IMPORTS                                 //
+//==================================================================//
+
 #include <stdio.h>
 #include <stdlib.h>
+
+//==================================================================//
+//                         FUNCIONES                               //
+//==================================================================//
+
+
 
 FILE *mifopen(const char *nombre, const char *modo)
 {
     FILE *fp;
 
+    // debe abrir el fichero con el modo que lo pasan
     if ((fp = fopen(nombre, modo)) == NULL) {
         printf("\nError in mifopen:");
         printf("\nFile %s could not be opened", nombre);
@@ -21,5 +32,5 @@ FILE *mifopen(const char *nombre, const char *modo)
         exit(1);
     }
     else
-        return fp;
+        return fp; // si todo es correcto, devuelvo el puntero al archivo abierto
 }
